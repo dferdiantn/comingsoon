@@ -97,14 +97,14 @@
 					if(dataPlay === 'false') {
 					btn.setAttribute('data-play', 'true');
 					myAudio.play();
-					btnIcon.classList.remove("fa-play");
-					btnIcon.classList.add("fa-pause");
+					btnIcon.classList.remove("zmdi-play");
+					btnIcon.classList.add("zmdi-pause");
 					btnText.innerText = "PAUSE";
 					} else {
 					btn.setAttribute('data-play', 'false');
 					myAudio.pause();
-					btnIcon.classList.remove("fa-pause");
-					btnIcon.classList.add("fa-play");
+					btnIcon.classList.remove("zmdi-pause");
+					btnIcon.classList.add("zmdi-play");
 					btnText.innerText = "PLAY";
 					}
 				};
