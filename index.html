@@ -22,10 +22,9 @@
 <!--===============================================================================================-->
 </head>
 <body>
-	<audio hidden autoplay loop>
+	<!-- <audio hidden autoplay loop>
 		<source src="music.mp3" type="audio/mpeg">
-	</audio>
-	
+	</audio> -->
 	<!--  -->
 	<div class="simpleslide100">
 		<div class="simpleslide100-item bg-img1" style="background-image: url('images/bg01.jpg');"></div>
@@ -68,7 +67,7 @@
 			</div>
 
 			<div class="m-t-10 m-b-10">
-				<a href="https://dferdiantn.github.io/2048/" class="size2 s1-txt1 flex-c-m how-btn1 trans-04">
+				<a href="#" class="size2 s1-txt1 flex-c-m how-btn1 trans-04">
 					Let's play
 				</a>
 			</div>
@@ -80,11 +79,45 @@
 				Coming Soon
 			</h3>
 
-			<!-- <div>
-				<button class="how-btn-play1 flex-c-m">
+			<div>
+				<button class="how-btn-play1 flex-c-m" onclick="toggleMusic()" id="btn-playback" data-play="false">
 					<i class="zmdi zmdi-play"></i>
 				</button>
-			</div> -->
+			</button>
+				<audio id="audio" src="https://www.mboxdrive.com/music.mp3"/>
+				<script>
+				const myAudio = document.getElementById("audio");
+				const btn = document.getElementById("btn-playback");
+				const btnIcon = document.querySelector("#btn-playback > i");
+				const btnText = document.getElementById("btn-text");
+				
+				const toggleMusic = () => {      
+					const dataPlay = btn.getAttribute('data-play');
+						
+					if(dataPlay === 'false') {
+					btn.setAttribute('data-play', 'true');
+					myAudio.play();
+					btnIcon.classList.remove("fa-play");
+					btnIcon.classList.add("fa-pause");
+					btnText.innerText = "PAUSE";
+					} else {
+					btn.setAttribute('data-play', 'false');
+					myAudio.pause();
+					btnIcon.classList.remove("fa-pause");
+					btnIcon.classList.add("fa-play");
+					btnText.innerText = "PLAY";
+					}
+				};
+				
+				myAudio.onpause = () => {
+					btn.setAttribute('data-play', 'false');
+					myAudio.pause();
+					btnIcon.classList.remove("fa-pause");
+					btnIcon.classList.add("fa-play");
+					btnText.innerText = "PLAY";
+				};
+				</script>
+			</div>
 
 		</div>
 		<div class="flex-sb-m flex-w w-full">
